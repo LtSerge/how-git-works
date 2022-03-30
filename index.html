@@ -10,25 +10,46 @@
         text-decoration: none;
       }
       section h2 a {
-        color: maroon
+        color: gold;
+      }
+      section {
+        border-top: 1px solid gold;
+      }
+      article {
+        border-top: 1px solid gold;
+      }
+      article + article {
+        border-bottom: 1px solid black;
+        border-top: 1px solid black;
       }
     </style>
   </head>
   <body style="margin: 0px 20px">
     <header>
-      <h1><a style="color: cyan" href="https://app.pluralsight.com/course-player?clipId=0e31d18b-7060-47e3-b053-e1f7e947973c">How Git Works</a></h1>
+      <h1>
+        <a
+          style="color: cyan"
+          href="https://app.pluralsight.com/course-player?clipId=0e31d18b-7060-47e3-b053-e1f7e947973c"
+          >How Git Works</a
+        >
+      </h1>
     </header>
-    <section style="border-top: 1px solid black; border-bottom: 1px solid black" >
+    <section>
+      <!-- TODO Git Is Not What You Think -->
       <h2>
-        <a 
+        <a
           href="https://app.pluralsight.com/course-player?clipId=5326515f-7c84-4c87-afa6-e8a3b91aa93b#:~:text=Git%20Is%20Not%20What%20You%20Think"
           >Git Is Not What You Think</a
         >
       </h2>
-      <article
-        style="border-bottom: 1px solid black; border-top: 1px solid black; "
-      >
-        <h3><a href="https://app.pluralsight.com/course-player?clipId=e03c78be-bfea-4d39-95b1-5c6a4e0f9325#:~:text=Git%20Is-,an,-Onion">Git Is an Onion</a></h3>
+      <article>
+        <!-- !Git Is an Onion -->
+        <h3>
+          <a
+            href="https://app.pluralsight.com/course-player?clipId=e03c78be-bfea-4d39-95b1-5c6a4e0f9325#:~:text=Git%20Is-,an,-Onion"
+            >Git Is an Onion</a
+          >
+        </h3>
         <h3>Git as a Distributed Revision Control System</h3>
         <p>
           What does that mean? <br />
@@ -42,46 +63,136 @@
           Now lets imagine git without branches, history, merges:<br /><br />
           <b>a Control System (aka stupid content tracker)</b><br /><br />
           Control System, is a content tracking system at its core<br />
-          But even deeper, git is a <br /><br>
-          <b>a Persistent Map</b><br /><br>
-          Persistent structure means it is stored on your disc.
-            >In this corse, we will start with the <span style="color: cyan;">persistent structure</span> and
-            <span style="color: cyan;">the content system</span> (first 2 layers)</b</h5>
-        </p>
-      </article>
-      <article  style="border-bottom: 1px solid black; border-top: 1px solid black; ">
-        <h3><a href="https://app.pluralsight.com/course-player?clipId=e03c78be-bfea-4d39-95b1-5c6a4e0f9325#:~:text=3m%209s-,Values,-and%20Hashes"
-          >Values and Hashes</a></h3>
-        <p> 
-          At its core, git is a map, which means its composed of keys and values<br>
-          Values -> sequences of bytes, content of txt or binary file<br>
-          <b>you can give a value to git, and it will return a <u>key</u></b> <br>
-          the key is the <b>SHA1 hash</b><br>
-         <em>"Apple Pie"</em> ---> 23991897e13e47ed0adb91a0082c31c82fe0cbe5 (unique, 1 hash for this string)<br>
-         Sha1 hash are 20 bytes, example mac command to generate hash for applie pie:
-         <br>
-         <b>echo "Apple Pie" | git hash-object --stdin</b><br>
-         to make this command <em>persistent</em>, add a -w (write) flag: <br>
-
-         the echo command to output content, and then pipe the result into hash object, <br>
-         we also have to tell this object to get ints content from standard input
-          <br> -every object in a git repo has a SHA1 hash, hash function takes a value, and returns a 20byte string key for that value<br>
-          <b>git branch -m main</b><br>
-          ^rename branch to main cause master is "divisible language", more inclusive AND ACCURATE
-          <b></b>
-          <br>
+          But even deeper, git is a <br /><br />
+          <b>a Persistent Map</b><br /><br />
+          Persistent structure means it is stored on your disc. >In this corse,
+          we will start with the
+          <span style="color: cyan">persistent structure</span> and
+          <span style="color: cyan">the content system</span> (first 2 layers)
         </p>
       </article>
       <article>
+        <!-- ! Values and Hashes -->
         <h3>
-            <a href="https://app.pluralsight.com/course-player?clipId=716f89cc-4500-43a4-b815-dab0e1824a01#:~:text=Storing-,Things,-5m%204s">Storing Things</a>
+          <a
+            href="https://app.pluralsight.com/course-player?clipId=e03c78be-bfea-4d39-95b1-5c6a4e0f9325#:~:text=3m%209s-,Values,-and%20Hashes"
+            >Values and Hashes</a
+          >
+        </h3>
+        <p>
+          At its core, git is a map, which means its composed of keys and
+          values<br />
+          Values -> sequences of bytes, content of txt or binary file<br />
+          <b>you can give a value to git, and it will return a <u>key</u></b>
+          <br />
+          the key is the <b>SHA1 hash</b><br />
+          <em>"Apple Pie"</em> ---> 23991897e13e47ed0adb91a0082c31c82fe0cbe5
+          (unique, 1 hash for this string)<br />
+          Sha1 hash are 20 bytes, example mac command to generate hash for
+          applie pie:
+          <br />
+          <b>echo "Apple Pie" | git hash-object --stdin</b><br />
+          to make this command <em>persistent</em>, add a -w (write) flag:
+          <br />
+
+          the echo command to output content, and then pipe the result into hash
+          object, <br />
+          we also have to tell this object to get ints content from standard
+          input
+          <br />
+          -every object in a git repo has a SHA1 hash, hash function takes a
+          value, and returns a 20byte string key for that value<br />
+          Note: before you add the following command, you must make an initial
+          commit, like a test.
+          <br />
+          <b>git branch -m main</b><br />
+          ^rename branch to main cause master is "divisible language", more
+          inclusive AND ACCURATE
+          <b></b>
+          <br />
+        </p>
+      </article>
+      <article>
+        <!-- ! Storing Things -->
+        <h3>
+          <a
+            href="https://app.pluralsight.com/course-player?clipId=716f89cc-4500-43a4-b815-dab0e1824a01#:~:text=Storing-,Things,-5m%204s"
+            >Storing Things</a
+          >
         </h3>
 
-        if i wanted the content to be <em>persistent</em>, i would add the -w flag:<br>
-        <b>echo "Apple Pie" | git hash-object --stdin -w</b><br>
+        if i wanted the content to be <em>persistent</em>, i would add the -w
+        flag:<br />
+        <b>echo "Apple Pie" | git hash-object --stdin -w</b><br />
 
+        <br /><br />
+      </article>
 
-        <br><br>
+      <article>
+        <!-- ! First Commit -->
+        <h3>
+          <a
+            href="https://app.pluralsight.com/course-player?clipId=716f89cc-4500-43a4-b815-dab0e1824a01#:~:text=First-,Commit,-!"
+            >First Commit</a
+          >
+        </h3>
+        <p></p>
+      </article>
+
+      <article>
+        <!-- ! Versioning Made Easy -->
+        <h3>
+          <a
+            href="https://app.pluralsight.com/course-player?clipId=716f89cc-4500-43a4-b815-dab0e1824a01#:~:text=9m%2020s-,Versioning,-Made%20Easy"
+            >Versioning Made Easy</a
+          >
+        </h3>
+        <p></p>
+      </article>
+
+      <article>
+        <!-- ! One More Thing: Annotated Tags -->
+        <h3>
+          <a
+            href="https://app.pluralsight.com/course-player?clipId=50fe568d-c65e-45e6-ab1c-ff9110a5d2e0#:~:text=One%20More-,Thing,-%3A%20Annotated%20Tags"
+            >One More Thing: Annotated Tags</a
+          >
+        </h3>
+        <p></p>
+      </article>
+
+      <article>
+        <!-- ! What Git Really Is-->
+        <h3>
+          <a
+            href="https://app.pluralsight.com/course-player?clipId=9aebd8a6-a8ee-436a-873f-a59a71fffe85#:~:text=What%20Git-,Really,-Is"
+            >What Git Really Is</a
+          >
+        </h3>
+        <p></p>
+      </article>
+    </section>
+    <section>
+      <h2><a>Branches Demystified</a></h2>
+      <article>
+        <!-- ! What Git Really Is-->
+        <h3>
+          <a
+            href="https://app.pluralsight.com/course-player?clipId=9aebd8a6-a8ee-436a-873f-a59a71fffe85#:~:text=What%20Git-,Really,-Is"
+            >What Git Really Is</a
+          >
+        </h3>
+        <p></p>
+      </article>
+      <article>
+        <!-- ! What Git Really Is-->
+        <h3>
+          <a
+            href="https://app.pluralsight.com/course-player?clipId=9aebd8a6-a8ee-436a-873f-a59a71fffe85#:~:text=What%20Git-,Really,-Is"
+            >What Git Really Is</a
+          >
+        </h3>
+        <p></p>
       </article>
     </section>
   </body>
