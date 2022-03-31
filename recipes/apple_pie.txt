@@ -1,6 +1,6 @@
 Apple Pie
 
-flour
-eggs
-sugar
-apples
+flour 4x
+eggs 2x
+sugar 1x
+apples 2x
