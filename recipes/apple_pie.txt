@@ -4,3 +4,4 @@ flour 5x
 eggs 2x
 sugar 1x
 apples 2x
+lemon juice 1x
